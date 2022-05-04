@@ -1,0 +1,40 @@
+<div class="layout-wrapper flex flex-column" [ngClass]="{'layout-overlay':isOverlay(),
+                                'layout-static':isStatic(),
+                                'layout-theme-light':!config.dark,
+                                'layout-theme-dark':config.dark,
+                                'layout-overlay-sidebar-active': overlayMenuActive,
+                                'layout-static-sidebar-inactive': staticMenuInactive,
+                                'layout-mobile-sidebar-active':menuActiveMobile,
+                                'p-ripple-disabled': !config.ripple, 'p-input-filled': config.inputStyle === 'filled'}">
+    <app-topbar></app-topbar>
+    <div class="layout-sidebar">
+        <div class="flex flex-column card-container green-container h-full">
+            
+            <div class="align-items-center justify-content-center font-bold text-white border-round m-2">
+                <p-listbox [options]="layers" [(ngModel)]="selectedlayer" [showToggleAll]="false" optionLabel="name" [multiple]="true" [checkbox]="true"  [styleClass]="'border-noround'" [listStyle]="{'min-height':'250px'}">
+                    <ng-template pTemplate="header">
+                        Layers
+                    </ng-template>
+                    <ng-template let-layer pTemplate="item">
+                        <div class="layer-item">
+                            {{layer.name}}
+                        </div>
+                    </ng-template>
+                </p-listbox>
+            </div>
+
+            <div class="flex align-items-center justify-content-center font-bold text-white border-round m-2">
+                
+            </div>
+            <div class="flex align-items-center justify-content-center font-bold text-white border-round m-2">
+                <button pButton type="button" label="Submit" class="p-button"></button>
+            </div>
+        </div>
+    </div>
+    <div class="layout-main-container">
+        <div class="layout-main">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>>
+

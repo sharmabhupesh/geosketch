@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+    flex: 1;
+}
+  
+.left-bar {
+    width: 15em;
+    background-color: #546D78;
+}
+  
+.map-container {
+    flex: 1;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}

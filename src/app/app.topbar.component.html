@@ -1,0 +1,16 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <img src="assets/layout/images/{{appMain.config.dark ? 'logo-white' : 'logo-dark'}}.svg" alt="logo">
+        <span>Geo Sketch</span>
+    </a>
+    <a class="p-link layout-topbar-menu-button layout-topbar-button" href="#" (click)="appMain.toggleTopMenu($event)">
+        <i class="pi pi-ellipsis-v"></i>
+    </a>
+    <div class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active':appMain.topMenuActive}">
+        <a class="p-link layout-topbar-button"  (click)="menu.toggle($event)">
+            <i class="pi pi-user"></i>
+            <span>Profile</span>
+        </a>
+        <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+</div>
