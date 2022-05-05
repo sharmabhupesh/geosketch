@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { ConfigService } from './service/app.config.service';
 import { AppConfig } from './api/appconfig';
 import { Subscription } from 'rxjs';
-
+import { CountdownConfig } from 'ngx-countdown';
 interface Layer {
     name: string,
     code: string
@@ -27,6 +27,17 @@ interface Layer {
     ]
 })
 export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
+
+    countdownConfig: CountdownConfig = {
+        leftTime: 60,
+        format: 'HH:mm:ss',
+        prettyText: (text) => {
+          return text
+            .split(':')
+            .map((v) => `<span class="item">${v}</span>`)
+            .join('');
+        },
+    };
 
     public layers: Layer[];
 

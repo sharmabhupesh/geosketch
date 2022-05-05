@@ -9,3 +9,19 @@
 @import "assets/sass/layout/_variables";
 @import "assets/sass/layout/_layout";
 @import "assets/sass/overrides/_overrides";
+
+.custom-style {
+    font-size: 18px;
+    .item {
+      padding-left: 4px;
+      &:nth-child(1) {
+        color: rgb(199, 66, 0);
+      }
+      &:nth-child(2) {
+        color: rgb(45, 0, 170);
+      }
+      &:nth-child(3) {
+        color: rgb(207, 7, 147);
+      }
+    }
+}

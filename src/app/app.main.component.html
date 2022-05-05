@@ -10,7 +10,7 @@
     <div class="layout-sidebar">
         <div class="flex flex-column card-container green-container h-full">
             
-            <div class="align-items-center justify-content-center font-bold text-white border-round m-2">
+            <div class="align-items-center justify-content-center font-bold border-round m-2">
                 <p-listbox [options]="layers" [(ngModel)]="selectedlayer" [showToggleAll]="false" optionLabel="name" [multiple]="true" [checkbox]="true"  [styleClass]="'border-noround'" [listStyle]="{'min-height':'250px'}">
                     <ng-template pTemplate="header">
                         Layers
@@ -23,11 +23,17 @@
                 </p-listbox>
             </div>
 
-            <div class="flex align-items-center justify-content-center font-bold text-white border-round m-2">
+            <div class="flex align-items-center justify-content-center font-bold border-round m-2">
+                <countdown [config]="countdownConfig" class="custom-style"></countdown>
+            </div>
+            <div class="flex align-items-center justify-content-center font-bold border-round m-2">
+                <button pButton type="button" label="Submit" class="p-button"></button>
+            </div>
+            <div class="flex-1">
                 
             </div>
-            <div class="flex align-items-center justify-content-center font-bold text-white border-round m-2">
-                <button pButton type="button" label="Submit" class="p-button"></button>
+            <div class="flex-1 h-1rem">
+                
             </div>
         </div>
     </div>

@@ -141,7 +141,12 @@ import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AccessComponent } from './components/access/access.component';
-import { CdTimerModule } from 'angular-cd-timer';
+import { CountdownModule, CountdownGlobalConfig, CountdownConfig } from 'ngx-countdown';
+
+export function countdownConfigFactory(): CountdownConfig {
+    return {};
+}
+  
 @NgModule({
     imports: [
         BrowserModule,
@@ -231,7 +236,7 @@ import { CdTimerModule } from 'angular-cd-timer';
         VirtualScrollerModule,
         AppCodeModule,
         StyleClassModule,
-        CdTimerModule
+        CountdownModule
     ],
     declarations: [
         AppComponent,
@@ -280,7 +285,8 @@ import { CdTimerModule } from 'angular-cd-timer';
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, ConfigService
+        PhotoService, ProductService, MenuService, ConfigService,
+        { provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }
     ],
     bootstrap: [AppComponent]
 })
