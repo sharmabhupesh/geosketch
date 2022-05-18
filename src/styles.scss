@@ -25,3 +25,53 @@
       }
     }
 }
+
+.login-body {
+  height: 100vh;
+}
+
+.login-body .login-panel {
+  min-width: 30rem;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+}
+
+.login-body .login-panel .logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--surface-900);
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 300px;
+    border-radius: 12px;
+}
+
+.login-body .login-panel .logo-container img{
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+.login-body .login-panel > span {
+  color: #7B8794;
+}
+.login-body .login-panel > span span {
+  color: #495057;
+}
+.login-body .login-panel .p-button {
+  color: #FFFFFF;
+  background: #4C63B6;
+  border: 1px solid #4C63B6;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.login-body > span {
+  color: #495057;
+}
+
+@media (max-width: 991px) {
+  .login-body .login-panel {
+    min-width: auto;
+  }
+}

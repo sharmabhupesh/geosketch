@@ -5,6 +5,8 @@ import { ConfigService } from './service/app.config.service';
 import { AppConfig } from './api/appconfig';
 import { Subscription } from 'rxjs';
 import { CountdownConfig } from 'ngx-countdown';
+import { MenuItem } from 'primeng/api';
+import { AuthService } from './core/auth.service';
 interface Layer {
     name: string,
     code: string
@@ -28,6 +30,8 @@ interface Layer {
 })
 export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
 
+    items: MenuItem[];
+    
     countdownConfig: CountdownConfig = {
         leftTime: 60,
         format: 'HH:mm:ss',
@@ -73,16 +77,32 @@ export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
 
     subscription: Subscription;
     
-    constructor(public renderer: Renderer2, public app: AppComponent, public configService: ConfigService) {
+    constructor(public authService: AuthService,public renderer: Renderer2, public app: AppComponent, public configService: ConfigService) {
 
         this.layers = [
-            {name: 'New York', code: 'NY'},
-            {name: 'Rome', code: 'RM'}
+            {name: 'Parcel', code: 'NY'},
+            {name: 'Region', code: 'RM'}
         ];
 
     }
 
     ngOnInit() {
+        
+        this.items = [
+            {
+                label: 'Profile',
+                icon: 'pi pi-fw pi-user'
+            },
+            {
+                label: 'Setting',
+                icon: 'pi pi-fw pi-cog'
+            },
+            {
+                label: 'Log Out',
+                icon: 'pi pi-fw pi-sign-out'
+            },
+        ];
+
         this.config = this.configService.config;
         this.subscription = this.configService.configUpdate$.subscribe(config => this.config = config);
     }

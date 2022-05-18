@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:{
+    apiKey: "AIzaSyBx-IymFlMwPMAxeALb4RkFGzL5X9vn7w4",
+    authDomain: "geosketch-ee3f2.firebaseapp.com",
+    projectId: "geosketch-ee3f2",
+    storageBucket: "geosketch-ee3f2.appspot.com",
+    messagingSenderId: "405063442462",
+    appId: "1:405063442462:web:81849c2fb75b634742ce0f",
+    measurementId: "G-MVE1CHRW7D"
+  }
 };
 
 /*

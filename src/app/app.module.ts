@@ -142,7 +142,14 @@ import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AccessComponent } from './components/access/access.component';
 import { CountdownModule, CountdownGlobalConfig, CountdownConfig } from 'ngx-countdown';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AuthService } from './core/auth.service';
+import { RegisterComponent } from './components/register/register.component';
 export function countdownConfigFactory(): CountdownConfig {
     return {};
 }
@@ -154,6 +161,11 @@ export function countdownConfigFactory(): CountdownConfig {
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        AngularFireStorageModule,
+        AngularFireDatabaseModule,
         AccordionModule,
         AutoCompleteModule,
         AvatarModule,
@@ -280,9 +292,11 @@ export function countdownConfigFactory(): CountdownConfig {
         ErrorComponent,
         NotfoundComponent,
         AccessComponent,
-        MapComponent
+        MapComponent,
+        RegisterComponent
     ],
     providers: [
+        AuthService,
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
         PhotoService, ProductService, MenuService, ConfigService,

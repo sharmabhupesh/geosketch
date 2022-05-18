@@ -1,46 +1,45 @@
-<div class="layout-wrapper flex flex-column" [ngClass]="{'layout-overlay':isOverlay(),
-                                'layout-static':isStatic(),
-                                'layout-theme-light':!config.dark,
-                                'layout-theme-dark':config.dark,
-                                'layout-overlay-sidebar-active': overlayMenuActive,
-                                'layout-static-sidebar-inactive': staticMenuInactive,
-                                'layout-mobile-sidebar-active':menuActiveMobile,
-                                'p-ripple-disabled': !config.ripple, 'p-input-filled': config.inputStyle === 'filled'}">
-    <app-topbar></app-topbar>
-    <div class="layout-sidebar">
+<div class="grid m-0 h-screen">
+    <div class="col-fixed w-18rem surface-overlay">            
         <div class="flex flex-column card-container green-container h-full">
+            <div class="flex p-2">
+                <a class="layout-topbar-logo" routerLink="">
+                    <img src="assets/layout/images/{{config.dark ? 'logo-white' : 'logo-dark'}}.svg" alt="logo">
+                    <span>Geo Sketch</span>
+                </a>
+            </div>
+            <div class="flex flex-column flex-1">
+                <div class="align-items-center justify-content-center font-bold border-round m-2">
+                    <p-listbox [options]="layers" [(ngModel)]="selectedlayer" [showToggleAll]="false" optionLabel="name" [multiple]="true" [checkbox]="true"  [styleClass]="'border-noround'" [listStyle]="{'min-height':'250px'}">
+                        <ng-template pTemplate="header">
+                            Layers
+                        </ng-template>
+                        <ng-template let-layer pTemplate="item">
+                            <div class="layer-item">
+                                {{layer.name}}
+                            </div>
+                        </ng-template>
+                    </p-listbox>
+                </div>
+                <div class="flex align-items-center justify-content-center font-bold border-round m-2">
+                    <countdown [config]="countdownConfig" class="custom-style"></countdown>
+                </div>
+                <div class="flex align-items-center justify-content-center font-bold border-round m-2">
+                    <button pButton type="button" label="Submit" class="p-button"></button>
+                </div>
+            </div>
+            <div class="flex h-3rem justify-content-start align-items-center" *ngIf="authService.userData as user">
+                <p-avatar label="B" shape="circle" size="large"></p-avatar>
+                <span class="ml-2 font-semibold flex-1">{{(user.displayName) ? user.displayName : 'Bhupesh Kumar'}}</span>
+                <a class="p-link flex align-items-center justify-content-center" (click)="authService.SignOut()">
+                    <i class="pi pi-sign-out mr-3" pTooltip="Sign Out"></i>    
+                </a>
+            </div>
             
-            <div class="align-items-center justify-content-center font-bold border-round m-2">
-                <p-listbox [options]="layers" [(ngModel)]="selectedlayer" [showToggleAll]="false" optionLabel="name" [multiple]="true" [checkbox]="true"  [styleClass]="'border-noround'" [listStyle]="{'min-height':'250px'}">
-                    <ng-template pTemplate="header">
-                        Layers
-                    </ng-template>
-                    <ng-template let-layer pTemplate="item">
-                        <div class="layer-item">
-                            {{layer.name}}
-                        </div>
-                    </ng-template>
-                </p-listbox>
-            </div>
-
-            <div class="flex align-items-center justify-content-center font-bold border-round m-2">
-                <countdown [config]="countdownConfig" class="custom-style"></countdown>
-            </div>
-            <div class="flex align-items-center justify-content-center font-bold border-round m-2">
-                <button pButton type="button" label="Submit" class="p-button"></button>
-            </div>
-            <div class="flex-1">
-                
-            </div>
-            <div class="flex-1 h-1rem">
-                
-            </div>
         </div>
     </div>
-    <div class="layout-main-container">
-        <div class="layout-main">
+    <div class="col">
+        <div class="flex flex-1 h-full">
             <router-outlet></router-outlet>
         </div>
     </div>
-</div>>
-
+</div>

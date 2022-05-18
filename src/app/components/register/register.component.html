@@ -1,0 +1,12 @@
+<div class="login-body flex flex-column align-items-center justify-content-center">
+    <div class="login-panel p-5 pt-6 p-fluid flex flex-column justify-content-center align-items-center">
+        <div class="logo-container align-items-center mb-7">
+            <img src="assets/layout/images/{{config.dark ? 'logo-white' : 'logo-dark'}}.svg" alt="logo">
+            <span>Geo Sketch</span>
+        </div>
+        <span class="p-input-icon-left mb-3"><i class="pi pi-user"></i><input type="text" pinputtext="" placeholder="Email Address" class="p-inputtext p-component p-element" #userEmail required /></span>
+        <span class="p-input-icon-left mb-6"><i class="pi pi-key"></i><input type="password" pinputtext="" placeholder="Password" class="p-inputtext p-component p-element" #userPwd required /></span>
+        <button type="button" pbutton="" label="Sign Up" class="p-element p-button p-component" tabindex="0" (click)="authService.SignUp(userEmail.value, userPwd.value)"><span class="p-button-label">Sign Up</span></button>
+    </div>
+    <span class="mt-4">Already have an account, <span class="font-bold cursor-pointer" tabindex="0" routerLink="/sign-in">sign in</span></span>
+</div>
