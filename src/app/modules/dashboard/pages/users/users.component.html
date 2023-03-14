@@ -1,0 +1,43 @@
+<div class="flex items-center space-x-4 py-5 lg:py-6">
+  <ul class="hidden flex-wrap items-center space-x-2 sm:flex">
+    <li class="flex items-center space-x-2">
+      <a
+        class="text-primary transition-colors hover:text-primary-focus dark:text-accent-light dark:hover:text-accent"
+        href="#"
+        >Dashboard</a
+      >
+      <svg
+        x-ignore
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7" />
+      </svg>
+    </li>
+    <li>Users</li>
+  </ul>
+</div>
+<div class="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
+  <!-- Users Table -->
+  <div class="flex" id="addUserButtonConatiner">
+    <button
+      (click)="showAddUser()"
+      class="btn space-x-2 rounded-full bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+      </svg>
+      <span> Add User </span>
+    </button>
+  </div>
+  <div class="card">
+    <div>
+      <gridjs-angular [config]="usersGridConfig" *ngIf="usersGridConfig"></gridjs-angular>
+    </div>
+  </div>
+</div>

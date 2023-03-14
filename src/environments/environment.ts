@@ -4,15 +4,14 @@
 
 export const environment = {
   production: false,
-  firebase:{
-    apiKey: "AIzaSyBx-IymFlMwPMAxeALb4RkFGzL5X9vn7w4",
-    authDomain: "geosketch-ee3f2.firebaseapp.com",
-    projectId: "geosketch-ee3f2",
-    storageBucket: "geosketch-ee3f2.appspot.com",
-    messagingSenderId: "405063442462",
-    appId: "1:405063442462:web:81849c2fb75b634742ce0f",
-    measurementId: "G-MVE1CHRW7D"
-  }
+  appName: process.env.NG_APP_NAME,
+  debug: process.env.NG_APP_DEBUG,
+  version: process.env.NG_APP_VERSION,
+  baseUrl: process.env.NG_APP_BASE_URL,
+  apiUrl: process.env.NG_APP_API_URL,
+  apiVersion: process.env.NG_APP_API_VERSION,
+  sentryDsn: process.env.NG_APP_SENTRY_DSN,
+  sentryTracesSampleRate: process.env.NG_APP_SENTRY_TRACES_SAMPLE_RATE,
 };
 
 /*
