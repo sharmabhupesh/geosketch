@@ -18,5 +18,12 @@ export const ROUTES: Routes = [
         m => m.DashboardModule
       ),
   },
+  {
+    path: 'webapp',
+    loadChildren: () =>
+      import('@modules/webapp/webapp.module').then(
+        m => m.WebappModule
+      ),
+  },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
