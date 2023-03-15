@@ -19,6 +19,7 @@ import { ShortNamePipe } from '../pipes/shortName.pipe';
 
 import { PopperDirective } from '../directives/popper.directive';
 import { ClickOutsideDirective } from '../directives/click-outside.directive';
+import { UpanelComponent } from './layouts/upanel/upanel.component';
 
 const MODULES = [
   CommonModule,
@@ -39,7 +40,8 @@ const MODULES = [
     NotFoundComponent,
     ShortNamePipe,
     PopperDirective,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    UpanelComponent
   ],
   imports: [
     ...MODULES,
